@@ -1,8 +1,6 @@
 package com.example.springbatch.project.batch.classifier;
 
 import com.example.springbatch.project.batch.domain.ApiRequestVO;
-import com.example.springbatch.project.batch.domain.ProductVO;
-import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.classify.Classifier;
 
@@ -25,7 +23,7 @@ public class WriterClassifier<C, T> implements Classifier<C, T> {
 
     }
 
-    public void setWriterMapMap(Map<String, ItemWriter<ApiRequestVO>> writerMapMap) {
+    public void setWriterMap(Map<String, ItemWriter<ApiRequestVO>> writerMap) {
         this.writerMap = writerMap;
     }
 }

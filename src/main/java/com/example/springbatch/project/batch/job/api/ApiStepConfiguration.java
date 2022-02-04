@@ -149,7 +149,7 @@ public class ApiStepConfiguration {
         writerMap.put("2", new ApiItemWriter2(apiService2));
         writerMap.put("3", new ApiItemWriter3(apiService3));
 
-        classifier.setWriterMapMap(writerMap);
+        classifier.setWriterMap(writerMap);
 
         writer.setClassifier(classifier);
 
