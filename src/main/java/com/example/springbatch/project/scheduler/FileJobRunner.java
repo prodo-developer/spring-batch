@@ -22,8 +22,11 @@ public class FileJobRunner extends JobRunner {
     @Override
     protected void doRun(ApplicationArguments args) {
 
-        JobDetail jobDetail = buildJobDetail(ApiSchJob.class, "fileJob", "batch", new HashMap());
+        String[] sourceArgs = args.getSourceArgs();
+
+        JobDetail jobDetail = buildJobDetail(FileSchJob.class, "fileJob", "batch", new HashMap());
         Trigger trigger = buildJobTrigger("0/50 * * * * ?"); // 50초마다 실행
+        jobDetail.getJobDataMap().put("requestDate", sourceArgs[0]);
 
         try{
             scheduler.scheduleJob(jobDetail, trigger);
