@@ -24,7 +24,7 @@ public class ApiJobRunner extends JobRunner {
     protected void doRun(ApplicationArguments args) {
 
         JobDetail jobDetail = buildJobDetail(ApiSchJob.class, "apiJob", "batch", new HashMap());
-        Trigger trigger = buildJobTrigger("0/30 * * * * ?"); // 30초마다 실행
+        Trigger trigger = buildJobTrigger("0/10 * * * * ?"); // 10초마다 실행
 
         try{
             scheduler.scheduleJob(jobDetail, trigger);

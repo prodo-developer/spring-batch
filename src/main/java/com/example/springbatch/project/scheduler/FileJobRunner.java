@@ -25,7 +25,7 @@ public class FileJobRunner extends JobRunner {
         String[] sourceArgs = args.getSourceArgs();
 
         JobDetail jobDetail = buildJobDetail(FileSchJob.class, "fileJob", "batch", new HashMap());
-        Trigger trigger = buildJobTrigger("0/50 * * * * ?"); // 50초마다 실행
+        Trigger trigger = buildJobTrigger("0/30 * * * * ?"); // 30초마다 실행
         jobDetail.getJobDataMap().put("requestDate", sourceArgs[0]);
 
         try{
